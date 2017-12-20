@@ -21,7 +21,7 @@ class Video(models.Model):
 class Subject(models.Model):
     subject= models.CharField(max_length=80)
     time = models.IntegerField()
-    video = models.ForeignKey(Video, null=True, blank=False, on_delete=models.CASCADE)
+    video = models.ForeignKey(Video, related_name='subjects', null=True, blank=False, on_delete=models.CASCADE)
 
 
 
