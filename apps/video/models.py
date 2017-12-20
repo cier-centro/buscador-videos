@@ -8,20 +8,22 @@ from django.db import models
 
 class Tag(models.Model):
     tag= models.CharField(max_length=45)
+    def __unicode__(self):
+        return self.tag
+
+class Video(models.Model):
+    url = models.CharField(max_length=60)
+    title= models.CharField(max_length=45)
+    date=models.DateField()
+    lenght =models.BigIntegerField()
+    tags=models.ManyToManyField(Tag)
 
 class Subject(models.Model):
     subject= models.CharField(max_length=80)
     time = models.IntegerField()
+    video = models.ForeignKey(Video, null=True, blank=False, on_delete=models.CASCADE)
 
 
-class Video(models.Model):
-    url = models.CharField(max_length=60)
-    nick = models.CharField(max_length=45)
-    tittle= models.CharField(max_length=45)
-    date=models.DateField()
-    timr =models.BigIntegerField()
-    subject=models.ForeignKey(Subject, null=True, blank=False, on_delete=models.CASCADE)
-    tags=models.ManyToManyField(Tag)
 
 
 

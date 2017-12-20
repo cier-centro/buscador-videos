@@ -5,8 +5,14 @@ from django.contrib import admin
 
 # Register your models here.
 
-from apps.video.models import Video,Tag,Subject
+from models import Video, Tag, Subject
 
-admin.site.register(Video)
+class SubjectInline(admin.TabularInline):
+    model = Subject
+
+class VideoAdmin(admin.ModelAdmin):
+    inlines = [SubjectInline]
+
+admin.site.register(Video, VideoAdmin)
 admin.site.register(Tag)
-admin.site.register(Subject)
+
