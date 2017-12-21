@@ -15,12 +15,12 @@ class Video(models.Model):
     url = models.CharField(max_length=60)
     title= models.CharField(max_length=45)
     date=models.DateField()
-    lenght =models.BigIntegerField()
+    lenght = models.DurationField()
     tags=models.ManyToManyField(Tag)
 
 class Subject(models.Model):
     subject= models.CharField(max_length=80)
-    time = models.IntegerField()
+    time = models.DurationField()
     video = models.ForeignKey(Video, related_name='subjects', null=True, blank=False, on_delete=models.CASCADE)
 
 
