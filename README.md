@@ -36,8 +36,7 @@ python manage.py createsuperuser
 El sistema arranca localmente en modo de pruebas con los comandos 
 
 ```bash
-export DJANGO_DEBUG=true
-python manage.py runserver --nostatic
+python manage.py runserver
 ```
 
 Pero solo estará disponible el admin en http://localhost:8000/admin/
@@ -55,5 +54,7 @@ Se puede descargar el json con la lista de todos los videos en:
 Se puede descargar el json con videos filtrados por tags como se muestra en los siguientes ejemplos:
 
 >  http://localhost:8000/api/v1/videolist?tag=TAG1
+
 >  http://localhost:8000/api/v1/videolist?tag=TAG1&tag=TAG2
 
+donde TAG1 y TAG2 son tags de los videos, en el primer ejemplo se muestran todos los videos que tienen el tag TAG1, en el segundo se muestran todos aquellos que tienen como tag TAG1 o TAG2.
