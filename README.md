@@ -32,3 +32,28 @@ Se crea un superusuario con el comando
 python manage.py createsuperuser
 ```
 
+##### Correr el sistema
+El sistema arranca localmente en modo de pruebas con los comandos 
+
+```bash
+export DJANGO_DEBUG=true
+python manage.py runserver --nostatic
+```
+
+Pero solo estará disponible el admin en http://localhost:8000/admin/
+
+### API
+Se puede acceder a la API para descargar los datos de los videos
+
+#### Lista de videos
+##### Todos los videos
+Se puede descargar el json con la lista de todos los videos en:
+
+> http://localhost:8000/api/v1/videolist
+
+#### Filtrados
+Se puede descargar el json con videos filtrados por tags como se muestra en los siguientes ejemplos:
+
+>  http://localhost:8000/api/v1/videolist?tag=TAG1
+>  http://localhost:8000/api/v1/videolist?tag=TAG1&tag=TAG2
+
