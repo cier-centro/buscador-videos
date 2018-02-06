@@ -15,8 +15,12 @@ class VideoListView(generics.ListAPIView):
     def get_queryset(self):
         queryset = Video.objects.all()
         tagNames = self.request.GET.getlist('tag')
-
+        videoName=self.request.GET.getlist('name')
         if len(tagNames) > 0:
-            tags = Tag.objects.filter(tag__in = tagNames)
+            tags = Tag.objects.filter(tag__in=tagNames)
             queryset = queryset.filter(tags__in=tags)
+        if len(videoName) > 0:
+            name = Video.objects.filter(title__in=videoName)
+            queryset = queryset.filter(title__in=name)
+
         return queryset

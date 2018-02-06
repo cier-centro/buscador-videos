@@ -25,7 +25,7 @@ SECRET_KEY = 'wr49u&$xm%t=7l1+q%ck3h)zu%pxmxs*olph&w*n48n^wj%*d@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["52.37.84.217"]
+ALLOWED_HOSTS = ["52.37.84.217", "localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -77,8 +77,14 @@ WSGI_APPLICATION = 'buscavideos.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'videos_proimagenes',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'buscador_videos',
+        'USER': 'userdjango',
+        'PASSWORD': 'contrasenia1',
+        'HOST': 'localhost',
+        'PORT': '3306',
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': 'videos_proimagenes',
     }
 }
 #
